@@ -6,9 +6,11 @@ class LeafNode(HTMLNode):
         super().__init__(tag=tag,value=value,props=props)
     
     def to_html(self):
-        if self.value:
-            if self.tag:
-                return f"<{self.tag} {self.props_to_html()}".strip() + f">{self.value}</{self.tag}>"
+        if self.value is not None:
+            if self.tag is not None:
+                if self.tag=="img":
+                    return f"<{self.tag} {self.props_to_html()}".strip() + f">{self.value.strip()}"
+                return f"<{self.tag} {self.props_to_html()}".strip() + f">{self.value.strip()}</{self.tag}>"
             else:
                 return self.value
         else:
