@@ -5,7 +5,6 @@ def copy_files(source_path, destiny_path):
 
     
     directories = os.listdir(source_path)
-    print(directories)
     for element in directories:
         element_path = os.path.join(source_path, element)     
         if os.path.isfile(element_path):
