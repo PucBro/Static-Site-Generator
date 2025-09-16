@@ -10,11 +10,11 @@ def main():
         base_path = sys.argv[0]
     else:
         base_path = "/"
-    if os.path.exists("./public"):
-        shutil.rmtree("./public")
-        os.mkdir("./public")
-    copy_files(source_path="./static", destiny_path="./public")
-    generate_pages_recursive("./content", "./template.html", "./public")
+    if os.path.exists("./docs"):
+        shutil.rmtree("./docs")
+    os.mkdir("./docs")  
+    copy_files(source_path="./static", destiny_path="./docs")
+    generate_pages_recursive("./content", "./template.html", "./docs", base_path=base_path)
     
 
 
